@@ -1,0 +1,34 @@
+﻿@model Nightmarket.Models.NightMarket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NightMarket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NightmarketName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NightmarketName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NightmarketIntroduction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NightmarketIntroduction)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.NightmarketId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
