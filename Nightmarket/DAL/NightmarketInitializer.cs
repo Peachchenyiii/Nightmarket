@@ -62,7 +62,7 @@ namespace Nightmarket.DAL
                 new Commodity{CommodityName="米血糕",CommodityPrice=45,CommodityClassification="點心",BoothId=12},
                 new Commodity{CommodityName="果汁",CommodityPrice=60,CommodityClassification="飲品",BoothId=13},
                 new Commodity{CommodityName="甘蔗汁",CommodityPrice=85,CommodityClassification="飲品",BoothId=14},
-                new Commodity{CommodityName="蚵仔煎",CommodityPrice=60,CommodityClassification="主食",BoothId=15},
+                new Commodity{CommodityName="蚵仔煎",CommodityPrice=50,CommodityClassification="主食",BoothId=15},
                 new Commodity{CommodityName="小火鍋",CommodityPrice=125,CommodityClassification="主食",BoothId=16},
                 new Commodity{CommodityName="男裝店",CommodityPrice=299,CommodityClassification="生活用品",BoothId=17},
                 new Commodity{CommodityName="鞋店",CommodityPrice=255,CommodityClassification="生活用品",BoothId=18},
