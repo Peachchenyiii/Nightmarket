@@ -10,7 +10,6 @@ namespace Nightmarket.Models
         public int NightmarketId { get; set; }
         public string NightmarketName { get; set; }
         public string NightmarketIntroduction { get; set; }
-
-        public virtual Booth Booth { get; set; }
+        public virtual ICollection<Booth> Booth { get; set; }
     }
 }

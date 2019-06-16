@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Nightmarket.DAL;
 using Nightmarket.Models;
+using Nightmarket.ViewModels;
 
 namespace Nightmarket.Controllers
 {
@@ -16,9 +17,41 @@ namespace Nightmarket.Controllers
         private NightmarketContext db = new NightmarketContext();
 
         // GET: NightMarket
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //return View(db.NightMarkets.ToList());
+        //}
+
+        public ActionResult Index(int? id, int? boothID)
         {
-            return View(db.NightMarkets.ToList());
+            var viewModel = new NightmarketIndexData();
+            viewModel.NightMarkets = db.NightMarkets.ToList();
+            // .Include(i => i.Booth.Select(c => c.Booth))
+            // .OrderBy(i => i.LastName);
+
+            if (id != null)
+            {
+                ViewBag.NightmarketId = id.Value;
+                viewModel.Booths = db.Booths.Where(x => x.NightmarketId == id).ToList();
+            }
+
+            if (boothID != null)
+            {
+                ViewBag.BoothID = boothID.Value;
+                var _commodity = db.Commoditys.FirstOrDefault(x => x.BoothId == boothID);
+
+                if (_commodity != null)
+                {
+                    viewModel.Commoditys = _commodity;
+                }
+                else
+                {
+                    viewModel.Commoditys = null;
+                }
+
+            }
+
+            return View(viewModel);
         }
 
         // GET: NightMarket/Details/5

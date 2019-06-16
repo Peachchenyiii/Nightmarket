@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Nightmarket.Models.NightMarket>
+﻿@model Nightmarket.ViewModels.NightmarketIndexData
 
 @{
     ViewBag.Title = "Index";
@@ -12,28 +12,106 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NightmarketName)
+            夜市名稱
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NightmarketIntroduction)
+            夜市簡介
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NightmarketName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NightmarketIntroduction)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NightmarketId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NightmarketId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NightmarketId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.NightMarkets)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NightmarketName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NightmarketIntroduction)
+            </td>
+            <td>
+                @Html.ActionLink("Select", "Index", new { id = item.NightmarketId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.NightmarketId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.NightmarketId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.NightmarketId })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@if (Model.Booths != null)
+{
+    <h3>攤位</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>編號</th>
+            <th>名稱</th>
+            <th>地點</th>
+            <th>經營人</th>
+            <th>介紹</th>
+        </tr>
+
+        @foreach (var item in Model.Booths)
+        {
+            string selectedRow = "";
+            if (item.BoothId == ViewBag.BoothID)
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index", new { boothID = item.BoothId })
+                </td>
+                <td>
+                    @item.BoothId
+                </td>
+                <td>
+                    @item.BoothName
+                </td>
+                <td>
+                    @item.BoothLocation
+                </td>
+                <td>
+                    @item.Operator
+                </td>
+                <td>
+                    @item.BoothIntroduction
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+@if (Model.Commoditys != null)
+{
+    <h3>商品</h3>
+
+    <table class="table">
+        <tr>
+            <th>編號</th>
+            <th>名稱</th>
+            <th>價格</th>
+            <th>分類</th>
+        </tr>
+
+            <tr>
+                <td>
+                    @Model.Commoditys.CommodityId
+                </td>
+                <td>
+                    @Model.Commoditys.CommodityName
+                </td>
+                <td>
+                    @Model.Commoditys.CommodityPrice
+                </td>
+                <td>
+                    @Model.Commoditys.CommodityClassification
+                </td>
+            </tr>
+        
+    </table>
+}
+
