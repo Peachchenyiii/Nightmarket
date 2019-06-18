@@ -26,8 +26,6 @@ namespace Nightmarket.Controllers
         {
             var viewModel = new NightmarketIndexData();
             viewModel.NightMarkets = db.NightMarkets.ToList();
-            // .Include(i => i.Booth.Select(c => c.Booth))
-            // .OrderBy(i => i.LastName);
 
             if (id != null)
             {

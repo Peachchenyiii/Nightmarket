@@ -154,6 +154,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BoothController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NightMarketController.cs" />
     <Compile Include="DAL\NightmarketContext.cs" />
@@ -177,6 +178,8 @@
     <Compile Include="Models\NightMarket.cs" />
     <Compile Include="Models\Score.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CommodityModel.cs" />
+    <Compile Include="ViewModels\BoothModel.cs" />
     <Compile Include="ViewModels\NightmarketIndexData.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +226,11 @@
     <Content Include="Views\NightMarket\Details.cshtml" />
     <Content Include="Views\NightMarket\Edit.cshtml" />
     <Content Include="Views\NightMarket\Index.cshtml" />
+    <Content Include="Views\Booth\Create.cshtml" />
+    <Content Include="Views\Booth\Delete.cshtml" />
+    <Content Include="Views\Booth\Details.cshtml" />
+    <Content Include="Views\Booth\Edit.cshtml" />
+    <Content Include="Views\Booth\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

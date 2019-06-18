@@ -1,0 +1,51 @@
+﻿@model IEnumerable< Nightmarket.Models.Booth>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BoothName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoothLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Operator)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BoothIntroduction)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoothName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoothLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Operator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BoothIntroduction)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BoothId }) |
+            @Html.ActionLink("Details", "BoothDetail", new { id=item.BoothId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BoothId })
+        </td>
+    </tr>
+}
+
+</table>
