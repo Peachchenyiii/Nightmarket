@@ -125,6 +125,7 @@ namespace Nightmarket.Controllers
             }
             base.Dispose(disposing);
         }
+
         public ActionResult BoothDetail(int id)
         {
             var _booth = db.Booths.FirstOrDefault(x => x.BoothId == id);
