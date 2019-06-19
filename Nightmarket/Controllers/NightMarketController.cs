@@ -29,6 +29,7 @@ namespace Nightmarket.Controllers
 
             if (id != null)
             {
+                // ViewBag像是一個包裹，NightmarketId包裹名稱
                 ViewBag.NightmarketId = id.Value;
                 viewModel.Booths = db.Booths.Where(x => x.NightmarketId == id).ToList();
             }

@@ -136,7 +136,7 @@ namespace Nightmarket.Controllers
                 _model.Location = _booth.BoothLocation;
                 _model.Operator = _booth.Operator;
                 _model.Introduction = _booth.BoothIntroduction;
-                _model.Products = new List<CommodityModel>();
+                _model.Commoditys = new List<CommodityModel>();
                 var _commodities = db.Commoditys.Where(x => x.BoothId == _booth.BoothId).ToList();
                 foreach (var _commodity in _commodities)
                 {
@@ -145,18 +145,9 @@ namespace Nightmarket.Controllers
                     model.Name = _commodity.CommodityName;
                     model.Price = _commodity.CommodityPrice;
                     model.Classification = _commodity.CommodityClassification;
-                    _model.Products.Add(model);
+                    _model.Commoditys.Add(model);
                 }
-                //foreach (var _commodity in _booth.Commoditys)
-                //{
-                //    ProductModel model = new ProductModel();
-                //    model.Id = _commodity.CommodityId;
-                //    model.Name = _commodity.CommodityName;
-                //    _model.Products.Add(model);
-                //}
-
             }
-
             return View("Details", _model);
         }
     }

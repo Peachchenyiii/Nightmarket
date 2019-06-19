@@ -13,6 +13,7 @@ namespace Nightmarket.ViewModels
         public string Location { get; set; }
         public string Operator { get; set; }
         public string Introduction { get; set; }
-        public List<CommodityModel>Products { get; set; }
+
+        public List<CommodityModel> Commoditys { get; set; }
     }
 }
